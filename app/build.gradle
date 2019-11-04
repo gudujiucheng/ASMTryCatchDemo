@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.canzhang.plugin'
+apply plugin: 'add-trycatch'
+
+addTryCatch {
+    hookPoint = [
+            "com.canzhang.asmtrycatch.tryCatch.TestCrash1": [
+                    "crashMethod1": true,"crashMethod2": "","crashMethod3":true]
+    ]
+    exceptionHandler = ["com.canzhang.asmtrycatch.tryCatch.ExceptionUtils": "uploadCatchedException"]
+}
 
 android {
     compileSdkVersion 29
